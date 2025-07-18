@@ -1,0 +1,47 @@
+#include "common.h"
+
+IDI_MAIN_ICON ICON "AutoClicker.ico"
+
+IDD_MAIN_DIALOG DIALOGEX 0, 0, 170, 200
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "鼠标连点器"
+FONT 10, "Microsoft YaHei", 400, 0, 0x86
+BEGIN
+    // ===== 基本设置分组框 =====
+    GROUPBOX "基本设置", 201, 10, 10, 150, 120
+    
+    // 点击方式 (单行紧凑布局)
+    LTEXT "点击方式:", -1, 20, 25, 40, 10
+    CONTROL "单击", IDC_RADIO_SINGLE, "Button", BS_AUTORADIOBUTTON | WS_GROUP, 60, 25, 30, 10
+    CONTROL "双击", IDC_RADIO_DOUBLE, "Button", BS_AUTORADIOBUTTON, 95, 25, 30, 10
+    
+    // 鼠标按键 (单行紧凑布局)
+    LTEXT "鼠标按键:", -1, 20, 45, 40, 10
+    CONTROL "左键", IDC_RADIO_LEFT, "Button", BS_AUTORADIOBUTTON | WS_GROUP, 60, 45, 30, 10
+    CONTROL "中键", IDC_RADIO_MIDDLE, "Button", BS_AUTORADIOBUTTON, 90, 45, 30, 10
+    CONTROL "右键", IDC_RADIO_RIGHT, "Button", BS_AUTORADIOBUTTON, 120, 45, 30, 10
+    
+    // 点击次数
+    LTEXT "点击次数:", -1, 20, 65, 40, 10
+    EDITTEXT IDC_CLICK_COUNT, 60, 65, 40, 10, ES_NUMBER
+    
+    // 间隔类型 (紧凑布局)
+    LTEXT "间隔类型:", -1, 20, 85, 40, 10
+    CONTROL "固定", IDC_RADIO_FIXED, "Button", BS_AUTORADIOBUTTON | WS_GROUP, 60, 85, 30, 10
+    CONTROL "随机", IDC_RADIO_RANDOM, "Button", BS_AUTORADIOBUTTON, 95, 85, 30, 10
+    
+    // 间隔时间
+    LTEXT "间隔(ms):", -1, 20, 105, 40, 10
+    COMBOBOX IDC_FIXED_INTERVAL, 60, 105, 70, 100, CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
+    COMBOBOX IDC_RANDOM_INTERVAL, 60, 105, 70, 100, CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
+    
+    // ===== 快捷键分组框 =====
+    GROUPBOX "快捷键", 207, 10, 135, 150, 40
+    LTEXT "开始: F6", -1, 25, 148, 40, 10
+    LTEXT "停止: F7", -1, 70, 148, 40, 10
+    LTEXT "暂停: F8", -1, 115, 148, 40, 10
+    LTEXT "继续: F9", -1, 25, 160, 40, 10
+    
+    // ===== 状态栏 =====
+    CTEXT "状态: 就绪", IDC_STATUS, 10, 185, 150, 10, SS_SUNKEN
+END
